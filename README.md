@@ -1,27 +1,27 @@
-1.Write a C++ program to implement singly linked list.
-#include<iostream>
-#include<cstdlib>
-using namespace std;
-struct node
-{
-int info;
-struct node *next;
-}*start;
-class single_llist
-{
-public:
-node* create_node(int);
-void insert_begin();
-void insert_last();
-void insert_pos();
-void delete_begin();
-void delete_last();
-void delete_pos();
-void search();
-void display();
-single_llist()
-{
-start = NULL;
+1.Write a C++ program to implement singly linked list <br>
+#include<iostream><br>
+#include<cstdlib><br>
+using namespace std;<br>
+struct node<br>
+{<br>
+int info;<br>
+struct node *next;<br>
+}*start;<br>
+class single_llist<br>
+{<br>
+public:<br>
+node* create_node(int);<br>
+void insert_begin();<br>
+void insert_last();<br>
+void insert_pos();<br>
+void delete_begin();<br>
+void delete_last();<br>
+void delete_pos();<br>
+void search();<br>
+void display();<br>
+single_llist()<br>
+{<br>
+start = NULL;<br>
 }
 };
 .0
