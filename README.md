@@ -22,244 +22,244 @@ void display();<br>
 single_llist()<br>
 {<br>
 start = NULL;<br>
-}
-};
-.0
-int main()
-{
-int choice;
-single_llist sl,s2;
-start = NULL;
-do
-{
-cout<<"1.Insert at first"<<endl;
-cout<<"2.Insert at last"<<endl;
-cout<<"3.Insert at position"<<endl;
-cout<<"4.Delete at first"<<endl;
-cout<<"5.Delete at Last"<<endl;
-cout<<"6.Delete at position"<<endl;
-cout<<"7.Search"<<endl;
-cout<<"8.Display"<<endl;
-cout<<"9.Exit "<<endl;
-cout<<"Enter your choice :";
-cin>>choice;
-switch(choice)
-{
-case 1: sl.insert_begin();
-sl.display();
-break;
-case 2: sl.insert_last();
-sl.display();
-break;
-case 3: sl.insert_pos();
-sl.display();
-break;
-case 4: s2.delete_begin();
-sl.display();
-break;
-case 5: s2.delete_last();
-sl.display();
-break;
-case 6: sl.delete_pos();
-sl.display();
-break;
-case 7:sl.search();
-sl.display();
-break;
-case 8:sl.display();
-break;
-case 9:exit(0);
-break;
-default:cout<<"Wrong choice...???"<<endl;
-break;
-}
-}
-while(choice != 9);
-}
-node *single_llist::create_node(int value)
-{
-struct node *temp, *s;
-temp = new(struct node);
-if (temp == NULL)
-{
-cout<<"Memory not allocated"<<endl;
-return 0;
-}
-else
-{
-temp->info = value;
-temp->next = NULL;
-return temp;
-}
-}
-void single_llist::insert_begin()
-{
-int value;
-cout<<"Enter the value to be inserted : ";
-cin>>value;
-struct node *temp, *s;
-temp = create_node(value);
-if (start == NULL)
-{
+}<br>
+};<br>
+.0<br>
+int main()<br>
+{<br>
+int choice;<br>
+single_llist sl,s2;<br>
+start = NULL;<br>
+do<br>
+{<br>
+cout<<"1.Insert at first"<<endl;<br>
+cout<<"2.Insert at last"<<endl;<br>
+cout<<"3.Insert at position"<<endl;<br>
+cout<<"4.Delete at first"<<endl;<br>
+cout<<"5.Delete at Last"<<endl;<br>
+cout<<"6.Delete at position"<<endl;<br>
+cout<<"7.Search"<<endl;<br>
+cout<<"8.Display"<<endl;<br>
+cout<<"9.Exit "<<endl;<br>
+cout<<"Enter your choice :";<br>
+cin>>choice;<br>
+switch(choice)<br>
+{<br>
+case 1: sl.insert_begin();<br>
+sl.display();<br>
+break;<br>
+case 2: sl.insert_last();<br>
+sl.display();<br>
+break;<br>
+case 3: sl.insert_pos();<br>
+sl.display();<br>
+break;<br>
+case 4: s2.delete_begin();<br>
+sl.display();<br>
+break;<br>
+case 5: s2.delete_last();<br>
+sl.display();<br>
+break;<br>
+case 6: sl.delete_pos();<br>
+sl.display();<br>
+break;<br>
+case 7:sl.search();<br><br>
+sl.display();<br><br>
+break;<br><br>
+case 8:sl.display();<br><br>
+break;<br><br>
+case 9:exit(0);<br><br>
+break;<br><br>
+default:cout<<"Wrong choice...???"<<endl;<br><br>
+break;<br><br>
+}<br><br>
+}<br><br>
+while(choice != 9);<br><br>
+}<br><br>
+node *single_llist::create_node(int value)<br><br>
+{<br><br>
+struct node *temp, *s;<br><br>
+temp = new(struct node);<br><br>
+if (temp == NULL)<br><br>
+{<br><br>
+cout<<"Memory not allocated"<<endl;<br>
+return 0;<br>
+}<br>
+else<br>
+{<br>
+temp->info = value;<br>
+temp->next = NULL;<br>
+return temp;<br>
+}<br>
+}<br>
+void single_llist::insert_begin()<br>
+{<br>
+int value;<br>
+cout<<"Enter the value to be inserted : ";<br>
+cin>>value;<br>
+struct node *temp, *s;<br>
+temp = create_node(value);<br>
+if (start == NULL)<br>
+{<br>
 start = temp;
-start->next = NULL;
-cout<<temp->info<<" is inserted at first in the empty list"<<endl;
-}
-else
-{
-s = start;
-start = temp;
-start->next = s;
-cout<<temp->info<<" is inserted at first"<<endl;
-}
-}
-void single_llist::insert_last()
-{
-int value;
-cout<<"Enter the value to be inserted : ";
+start->next = NULL;<br>
+cout<<temp->info<<" is inserted at first in the empty list"<<endl;<br>
+}<br>
+else<br>
+{<br>
+s = start;<br>
+start = temp;<br>
+start->next = s;<br>
+cout<<temp->info<<" is inserted at first"<<endl;<br>
+}<br>
+}<br>
+void single_llist::insert_last()<br>
+{<br>
+int value;<br>
+cout<<"Enter the value to be inserted : ";<br>
 cin>>value;
-struct node *temp, *s;
-temp = create_node(value);
-if (start == NULL)
-{
-start = temp;
-start->next = NULL;
-cout<<temp->info<<" is inserted at last in the empty list"<<endl;
-}
-else
-{
-s = start;
-while (s->next != NULL)
-{
-s = s->next;
-}
-temp->next = NULL;
-s->next = temp;
-cout<<temp->info<<" is inserted at last"<<endl;
-}
-}
-void single_llist::insert_pos()
-{
-int value, pos, counter = 0, loc = 1;
-struct node *temp, *s, *ptr;
-s = start;
-while (s != NULL)
-{
-s = s->next;
-counter++;
-}
-if (counter == 0){}
-else
-{
-cout<<"Enter the postion from "<<loc<<" to "<<counter+1<<" : ";
-cin>>pos;
-s = start;
-if(pos == 1)
-{
-cout<<"Enter the value to be inserted : ";
-cin>>value;
-temp = create_node(value);
-start = temp;
-start->next = s;
-cout<<temp->info<<" is inserted at first"<<endl;
-}
-else if (pos > 1 && pos <= counter)
-{
-cout<<"Enter the value to be inserted : ";
-cin>>value;
-temp = create_node(value);
-for (int i = 1; i < pos; i++)
-{
-ptr = s;
-s = s->next;
-}
-ptr->next = temp;
-temp->next = s;
-cout<<temp->info<<" is inserted at position "<<pos<<endl;
-}
-else if (pos == counter+1)
-{
-cout<<"Enter the value to be inserted : ";
-cin>>value;
-temp = create_node(value);
-while (s->next != NULL)
-{
-s = s->next;
-}
-temp->next = NULL;
-s->next = temp;
-cout<<temp->info<<" is inserted at last"<<endl;
-}
-else
-{
-cout<<"Positon out of range...!!!"<<endl;
-}
-}
-}
-void single_llist::delete_begin()
-{
-if (start == NULL){}
-else
-{
-struct node *s, *ptr;
-s = start;
-start = s->next;
-cout<<s->info<<" deleted from first"<<endl;
-free(s);
-}
-}
-void single_llist::delete_last()
-{
-int i, counter = 0;
-struct node *s, *ptr;
-if (start == NULL){}
-else
-{
-s = start;
-while (s != NULL)
-{
-s = s->next;
-counter++;
-}
-s = start;
-if (counter == 1)
-{
-start = s->next;
-cout<<s->info<<" deleted from last"<<endl;
-free(s);
-}
-else
-{
-for (i = 1;i < counter;i++)
-{
-ptr = s;
-s = s->next;
-}
-ptr->next = s->next;
-cout<<s->info<<" deleted from last"<<endl;
-free(s);
-}
-}
-}
-void single_llist::delete_pos()
-{
-int pos, i, counter = 0, loc = 1;
-struct node *s, *ptr;
-s = start;
-while (s != NULL)
-{
-s = s->next;
-counter++;
-}
-if (counter == 0){}
-else
-{
-if (counter == 1)
-{
-cout<<"Enter the postion [ SAY "<<loc<<" ] : ";
-cin>>pos;
-s = start;
-if (pos == 1)
+struct node *temp, *s;<br>
+temp = create_node(value);<br>
+if (start == NULL)<br>
+{<br>
+start = temp;<br>
+start->next = NULL;<br>
+cout<<temp->info<<" is inserted at last in the empty list"<<endl;<br>
+}<br>
+else<br>
+{<br>
+s = start;<br>
+while (s->next != NULL)<br>
+{<br>
+s = s->next;<br>
+}<br>
+temp->next = NULL;<br>
+s->next = temp;<br>
+cout<<temp->info<<" is inserted at last"<<endl;<br>
+}<br>
+}<br>
+void single_llist::insert_pos()<br>
+{<br>
+int value, pos, counter = 0, loc = 1;<br>
+struct node *temp, *s, *ptr;<br>
+s = start;<br>
+while (s != NULL)<br>
+{<br>
+s = s->next;<br>
+counter++;<br>
+}<br>
+if (counter == 0){}<br>
+else<br>
+{<br>
+cout<<"Enter the postion from "<<loc<<" to "<<counter+1<<" : ";<br>
+cin>>pos;<br>
+s = start;<br>
+if(pos == 1)<br>
+{<br>
+cout<<"Enter the value to be inserted : ";<br>
+cin>>value;<br>
+temp = create_node(value);<br>
+start = temp;<br>
+start->next = s;<br>
+cout<<temp->info<<" is inserted at first"<<endl;<br>
+}<br>
+else if (pos > 1 && pos <= counter)<br>
+{<br>
+cout<<"Enter the value to be inserted : ";<br>
+cin>>value;<br>
+temp = create_node(value);<br>
+for (int i = 1; i < pos; i++)<br>
+{<br>
+ptr = s;<br>
+s = s->next;<br>
+}<br>
+ptr->next = temp;<br>
+temp->next = s;<br>
+cout<<temp->info<<" is inserted at position "<<pos<<endl;<br>
+}<br>
+else if (pos == counter+1)<br>
+{<br>
+cout<<"Enter the value to be inserted : ";<br>
+cin>>value;<br>
+temp = create_node(value);<br>
+while (s->next != NULL)<br>
+{<br>
+s = s->next;<br>
+}<br>
+temp->next = NULL;<br>
+s->next = temp;<br>
+cout<<temp->info<<" is inserted at last"<<endl;<br>
+}<br>
+else<br>
+{<br>
+cout<<"Positon out of range...!!!"<<endl;<br>
+}<br>
+}<br>
+}<br>
+void single_llist::delete_begin()<br>
+{<br>
+if (start == NULL){}<br>
+else<br>
+{<br>
+struct node *s, *ptr;<br>
+s = start;<br>
+start = s->next;<br>
+cout<<s->info<<" deleted from first"<<endl;<br>
+free(s);<br>
+}<br>
+}<br>
+void single_llist::delete_last()<br>
+{<br>
+int i, counter = 0;<br>
+struct node *s, *ptr;<br>
+if (start == NULL){}<br>
+else<br>
+{<br>
+s = start;<br>
+while (s != NULL)<br>
+{<br>
+s = s->next;<br>
+counter++;<br>
+}<br>
+s = start;<br>
+if (counter == 1)<br>
+{<br>
+start = s->next;<br>
+cout<<s->info<<" deleted from last"<<endl;<br>
+free(s);<br>
+}<br>
+else<br>
+{<br>
+for (i = 1;i < counter;i++)<br>
+{<br>
+ptr = s;<br>
+s = s->next;<br>
+}<br>
+ptr->next = s->next;<br>
+cout<<s->info<<" deleted from last"<<endl;<br>
+free(s);<br>
+}<br>
+}<br>
+}<br>
+void single_llist::delete_pos()<br>
+{<br>
+int pos, i, counter = 0, loc = 1;<br>
+struct node *s, *ptr;<br>
+s = start;<br>
+while (s != NULL)<br>
+{<br>
+s = s->next;<br>
+counter++;<br>
+}<br>
+if (counter == 0){}<br>
+else<br>
+{<br>
+if (counter == 1)<br>
+{<br>
+cout<<"Enter the postion [ SAY "<<loc<<" ] : ";<br>
+cin>>pos;<br>
+s = start;<br>
+if (pos == 1)<br>
 {
 start = s->next;
 cout<<s->info<<" deleted from first"<<endl;
